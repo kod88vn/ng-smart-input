@@ -10,10 +10,10 @@ Fancy performance input box
 
 ## Usage
 1. `<script type='text/javascript' src='ng-smart-input/dist/app.min.js'></script>`
-2. angular.module('myApp', ['ng-smart-input'])
+2. `angular.module('myApp', ['ng-smart-input'])`
 3. provide a config object
 
-## Example
+## Config Example
 ```javascript
 this.smartInputConfig = {
 	id: 'fancy-input',
