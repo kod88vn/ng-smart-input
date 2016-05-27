@@ -1,0 +1,22 @@
+{
+  "name": "ng-typist",
+  "description": "Angular wrapper for malarkey",
+  "main": "index.js",
+  "authors": [
+    "Jay Quach"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "angular",
+    "typist",
+    "malarkey"
+  ],
+  "homepage": "https://github.com/kod88vn/ng-es6-boilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
