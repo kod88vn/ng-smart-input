@@ -6,24 +6,30 @@
 		var vm = this;
 
 		vm.smartInputConfig = {
-      id: 'fancy-input',
-      placeholder: 'fancy smart input',
-      delay: 500,
-      suggestions: [
-      	'angular', 
-      	'angoala', 
-      	'kola', 
-      	'ant', 
-      	'angry',
-      	'anthem',
-      	'apple',
-      	'ak',
-      	'car',
-      	'arse',
-      	'anker',
-      	'antler'
-    	]
-    };
+			id: 'fancy-input',
+			placeholders: [
+				'fancy smart input...',
+				'type in your search text here'
+			],
+			delay: 500,
+				suggestions: [
+				'angular', 
+				'angoala', 
+				'kola', 
+				'ant', 
+				'angry',
+				'anthem',
+				'apple',
+				'ak',
+				'car',
+				'arse',
+				'anker',
+				'antler',
+				'obama',
+				'omaha',
+				'alabama'
+			]
+		};
 	});
 
 })();

@@ -44,16 +44,19 @@
 				}
 			};
 
-			malarkey(elem, opts).type($scope.config.placeholder).pause().delete();
+			var typist = malarkey(elem, opts);
+			vm.config.placeholders.forEach(function(p) {
+				typist.type(p).pause().delete();
+			});
 		});
 	}
 
 	SmartInputController.prototype = {
     set searchText (text) {
       var vm = this;
-      vm._searchText = text;
+      vm._searchText = text || '';
 
-      if(text.length === 0) {
+      if(vm.config === undefined) {
         return;
       }
 
