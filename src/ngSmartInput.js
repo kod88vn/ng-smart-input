@@ -7,25 +7,29 @@
 	}
 
 	angular.module('ng-smart-input', [])
-		.controller('smartInputController', smartInputController)
-		.directive('smartInput', smartInputDirective);
+		.controller('SmartInputController', SmartInputController)
+		.directive('smartInput', SmartInputDirective);
 
-	function smartInputDirective() {
+	function SmartInputDirective() {
 		return {
 			restrict: 'E',
 			scope: {
 				config: '='
 			},
 			templateUrl: 'ngSmartInput.html',
-			controller: 'smartInputController',
+			controller: 'SmartInputController',
 			controllerAs: 'sic'
 		}
 	}
 
-	function smartInputController($scope, $timeout) {
-		$timeout(function() {
-			var config = $scope.config;
+	function SmartInputController($scope, $timeout) {
+		var vm = this;
+		vm.searchText = '';
+		vm.searchTimer = null;
+		vm.config = $scope.config;
+		vm.scope = $scope;
 
+		$timeout(function() {
 			var elem = document.querySelector('#' + $scope.config.id);
 			var opts = {
 				typeSpeed: 50,
@@ -43,5 +47,31 @@
 			malarkey(elem, opts).type($scope.config.placeholder).pause().delete();
 		});
 	}
+
+	SmartInputController.prototype = {
+    set searchText (text) {
+      var vm = this;
+      vm._searchText = text;
+
+      if(text.length === 0) {
+        return;
+      }
+
+      if(vm.searchTimer) {
+        clearTimeout(vm.searchTimer);
+      }
+
+      vm.searchTimer = setTimeout(function() {
+        vm.searchTimer = null;
+        vm.filterText = vm._searchText;
+        if(!vm.scope.$$phase) {
+            vm.scope.$digest(); 
+        }
+      }, vm.config.delay);
+    },
+    get searchText() {
+      return this._searchText;
+    }
+  }
 
 })();

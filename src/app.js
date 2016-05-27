@@ -8,6 +8,7 @@
 		vm.smartInputConfig = {
       id: 'fancy-input',
       placeholder: 'fancy smart input',
+      delay: 500,
       suggestions: [
       	'angular', 
       	'angoala', 

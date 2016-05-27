@@ -33,7 +33,7 @@ gulp.task('html', ['jshint', 'clean'], function () {
     .pipe(gulp.dest('dist/templates'));
 });
 
-gulp.task('css', 'clean', function () {
+gulp.task('css', ['clean'], function () {
   return gulp.src('./src/*.styl')
   .pipe(sourcemaps.init())
     .pipe(stylus({
