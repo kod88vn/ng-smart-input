@@ -14,5 +14,29 @@ Fancy performance input box
 
 ## Example
 ```javascript
-
+this.smartInputConfig = {
+	id: 'fancy-input',
+	placeholders: [
+		'fancy smart input...',
+		'your search text goes here'
+	],
+	delay: 500,
+	suggestions: [
+		'angular', 
+		'angoala', 
+		'kola', 
+		'ant', 
+		'angry',
+		'anthem',
+		'apple',
+		'ak',
+		'car',
+		'arse',
+		'anker',
+		'antler',
+		'obama',
+		'omaha',
+		'alabama'
+	]
+};
 ```
