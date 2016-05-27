@@ -12,7 +12,7 @@
 				'type in your search text here'
 			],
 			delay: 500,
-				suggestions: [
+			suggestions: [
 				'angular', 
 				'angoala', 
 				'kola', 

@@ -1,6 +1,6 @@
 {
-  "name": "ng-typist",
-  "version": "0.0.16",
+  "name": "ng-smart-input",
+  "version": "0.0.2",
   "description": "Fancy performance input box",
   "main": "src/app.js",
   "dependencies": {
