@@ -11,8 +11,23 @@
     <link rel="stylesheet" href="dist/css/ngSmartInput.css" >
 	</head>
 	<body data-ng-controller='mainController as mc' class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-		<h2>ng-smart-input</h2>
+		<h1>ng-smart-input</h1>
 		<smart-input data-config='mc.smartInputConfig'></smart-input>
+		<hr/>
+		<h2>Phrase Suggestions - Add more at the bottom</h2>
+		<table class="table table-striped">
+			<tr>
+				<th>#</th>
+				<th>Search Phrase</th>
+			</tr>
+			<tr data-ng-repeat='phrase in mc.smartInputConfig.suggestions'>
+				<td>{{$index}}</td>
+				<td>{{phrase}}</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input placeholder="new phrase" class="form-control" data-ng-model="mc.newPhrase" /></td>
+			</tr>
+		</table>
 		<script src="dist/app.js"></script>
 		<script src="src/app.js"></script>
 	</body>

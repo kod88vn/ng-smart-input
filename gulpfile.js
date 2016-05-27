@@ -84,4 +84,4 @@ gulp.task('webserver', ['build'], function() {
     }));
 });
 
-gulp.task('serve', ['build', 'webserver', 'watch']);
+gulp.task('serve', ['watch', 'build', 'webserver']);
