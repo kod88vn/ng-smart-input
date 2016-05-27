@@ -7,24 +7,47 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var del = require('del');
 var webserver = require('gulp-webserver');
+var angularTemplates = require('gulp-angular-templates');
+var pug = require('gulp-pug');
+var stylus = require('gulp-stylus');
 
-gulp.task('clean', function (cb) {
+gulp.task('clean', function (done) {
   del([
-      'dist',
-      'dist/statics'
-  ], cb);
+    // 'dist'
+  ], done());
 });
 
-gulp.task('jshint', ['clean'], function() {
+gulp.task('jshint', function() {
   gulp.src('/src/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('concat', function() {
+gulp.task('html', ['jshint', 'clean'], function () {
+  gulp.src("src/**/*.pug")
+    .pipe(pug())
+    .pipe(angularTemplates({
+      module: 'ng-smart-input',
+      standAlone: false
+    }))
+    .pipe(gulp.dest('dist/templates'));
+});
+
+gulp.task('css', 'clean', function () {
+  return gulp.src('./src/*.styl')
+  .pipe(sourcemaps.init())
+    .pipe(stylus({
+      compress: true
+    }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('concat', ['html', 'clean'], function() {
   return gulp.src([
-  		'node_modules/malarkey/dist/malarkey.js',
-	  	'src/app.js'
+      'src/ngSmartInput.js',
+      'node_modules/malarkey/dist/malarkey.js',
+      'dist/templates/*.js',
   	])
   	.pipe(concat('app.js'))
   	.pipe(sourcemaps.init())
@@ -42,24 +65,23 @@ gulp.task('compress', ['concat'], function() {
 });
 
 gulp.task('build', [ 
-  'clean', 
-	'jshint',
-	'concat',
+  'clean',
+  'css',
 	'compress'
-	], 
-	function() {
-	  return gulp.src('index.html')
-	    .pipe(cachebust.references())
-	    .pipe(gulp.dest('dist'));
+]);
+
+gulp.task('watch', function() {
+  return gulp.watch([
+    './src/**/*.*'
+  ], ['build']);
 });
 
-gulp.task('webserver', function() {
+gulp.task('webserver', ['build'], function() {
   gulp.src('./')
     .pipe(webserver({
       livereload: true,
-      directoryListing: true,
-      open: 'http://localhost:8000/index.html'
+      directoryListing: true
     }));
 });
 
-gulp.task('serve', ['webserver']);
+gulp.task('serve', ['build', 'webserver', 'watch']);
