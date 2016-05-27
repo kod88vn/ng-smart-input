@@ -8,7 +8,20 @@
 		vm.smartInputConfig = {
       id: 'fancy-input',
       placeholder: 'fancy smart input',
-      suggestions: ['angular', 'angoala', 'kola', 'ant', 'angry']
+      suggestions: [
+      	'angular', 
+      	'angoala', 
+      	'kola', 
+      	'ant', 
+      	'angry',
+      	'anthem',
+      	'apple',
+      	'ak',
+      	'car',
+      	'arse',
+      	'anker',
+      	'antler'
+    	]
     };
 	});
 
