@@ -1,17 +1,22 @@
 ![Alt text](/sample.png?raw=true)
 # ng-smart-input
-## Intro
-Fancy performance input box
-
+## Introduction
+Fancy performance input box with autocomplete
 
 ## Installing
 * `npm install -g gulp gulp-cli` install global cli dependencies
 * `npm install` to install dependencies
 
 ## Usage
-1. `<script type='text/javascript' src='ng-smart-input/dist/app.min.js'></script>`
-2. `angular.module('myApp', ['ng-smart-input'])`
-3. provide a config object
+* `<script type='text/javascript' src='ng-smart-input/dist/app.min.js'></script>`
+* `angular.module('myApp', ['ng-smart-input'])`
+* provide a config object
+
+## Config Options
+* id: give your input a unique id (mandatory)
+* placeholders: list of texts to be displayed as placeholder (optional)
+* delay: wait time until suggestions appear (optional)
+* suggestions: search space
 
 ## Config Example
 ```javascript

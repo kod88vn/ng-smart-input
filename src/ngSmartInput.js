@@ -29,7 +29,12 @@
 		vm.config = $scope.config;
 		vm.scope = $scope;
 
+    // start malarkey after page init
 		$timeout(function() {
+      if(vm.config.placeholders.length < 1) {
+        return;
+      }
+
 			var elem = document.querySelector('#' + $scope.config.id);
 			var opts = {
 				typeSpeed: 50,
@@ -68,9 +73,9 @@
         vm.searchTimer = null;
         vm.filterText = vm._searchText;
         if(!vm.scope.$$phase) {
-            vm.scope.$digest(); 
+            vm.scope.$digest();
         }
-      }, vm.config.delay);
+      }, vm.config.delay || 0);
     },
     get searchText() {
       return this._searchText;
