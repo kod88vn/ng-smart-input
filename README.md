@@ -16,6 +16,7 @@ Fancy performance input box with autocomplete
 * id: give your input a unique id (mandatory)
 * placeholders: list of texts to be displayed as placeholder (optional)
 * delay: wait time until suggestions appear (optional)
+* max: maximum number of suggestions to be shown
 * suggestions: search space
 
 ## Config Example

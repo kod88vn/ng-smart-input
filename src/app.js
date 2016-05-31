@@ -16,12 +16,13 @@
 				'fancy smart input...',
 				'your search text goes here'
 			],
+      max: 10,
 			delay: 500,
 			suggestions: [
-				'angular', 
-				'angoala', 
-				'kola', 
-				'ant', 
+				'angular',
+				'angoala',
+				'kola',
+				'ant',
 				'angry',
 				'anthem',
 				'apple',
@@ -56,7 +57,7 @@
         vm._newPhrase = '';
 
         if(!vm.scope.$$phase) {
-            vm.scope.$digest(); 
+            vm.scope.$digest();
         }
       }, 1000);
     },
