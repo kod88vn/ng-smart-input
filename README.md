@@ -9,6 +9,7 @@ Fancy performance input box with autocomplete
 
 ## Usage
 * `<script type='text/javascript' src='ng-smart-input/dist/app.min.js'></script>`
+* `<link rel="stylesheet" href="dist/css/ngSmartInput.css" >`
 * `angular.module('myApp', ['ng-smart-input'])`
 * provide a config object
 
