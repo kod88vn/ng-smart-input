@@ -65,17 +65,7 @@
         return;
       }
 
-      if(vm.searchTimer) {
-        clearTimeout(vm.searchTimer);
-      }
-
-      vm.searchTimer = setTimeout(function() {
-        vm.searchTimer = null;
-        vm.filterText = vm._searchText;
-        if(!vm.scope.$$phase) {
-            vm.scope.$digest();
-        }
-      }, vm.config.delay || 0);
+      vm.filterText = vm._searchText;
     },
     get searchText() {
       return this._searchText;

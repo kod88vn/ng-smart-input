@@ -1,5 +1,5 @@
 .input-group.width-100pct
-	input.form-control(placeholder='' ng-attr-id='{{config.id}}' data-ng-model='sic.searchText' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+	input.form-control(placeholder='' ng-attr-id='{{config.id}}' data-ng-model='sic.searchText' data-ng-model-options="{ debounce: sic.config.delay }" data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
 	ul.dropdown-menu.dropdown-menu-right.width-100pct.opacity-09
 		li(data-ng-repeat='sug in config.suggestions | filter:sic.filterText | limitTo:config.max || 5')
 			a(href='javascript:;', data-ng-click='sic.searchText = sug')
